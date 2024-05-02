@@ -12,7 +12,7 @@ The website is made with HTML and JS.
 [x] 3. Search bar.    
 [x] 4. Hide the buttons by clicking on `Chapters`.    
 [x] 5. Add the next button at the end of the page.    
-[x] 6. Responssive.    
+[x] 6. Responsive.    
 [ ] 7. Save the page of the chapter to come back at the right page.    
 [ ] 8. Fix the size of the images in the index.     
 [ ] 9. Add pages in the index.    
