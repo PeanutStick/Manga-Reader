@@ -1,5 +1,5 @@
 # Manga-Reader
-A manga website reader generator, writen in Bash.
+A manga website reader generator, writen in Bash.    
 The website is made with HTML and JS.
 
 # Usage
