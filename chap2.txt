@@ -1,0 +1,76 @@
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var currentChapterIndex = 0;
+    loadImages('chap1');
+    var mangaName = 'manga_name';
+    var toggleMenu = document.getElementById('toggleMenu');
+    var sidebar = document.getElementById('sidebar');
+    var nextChapterButton = document.getElementById('nextChapter');
+    var prevChapterButton = document.getElementById('prevChapter');
+    var homeButton = document.getElementById('homeButton');
+    var chapters = document.querySelectorAll('.chapter');
+    var currentChapterButton = document.getElementById('currentChapter');
+
+    //Hide the menu
+    toggleMenu.addEventListener('click', function() {
+        sidebar.classList.toggle('hidden');
+        nextChapterButton.classList.toggle('hidden');
+        prevChapterButton.classList.toggle('hidden');
+        homeButton.classList.toggle('hidden');
+    });
+    var chapters = document.querySelectorAll('.chapter');
+
+
+    chapters.forEach(function(chapter, index) {
+        chapter.addEventListener('click', function(event) {
+            event.preventDefault();
+            var target = this.getAttribute('data-target');
+            loadImages(target);
+            currentChapterIndex = index;
+            updateChapterButtons();
+       	    saveChapterToCookie(); //added
+
+	// // Remove 'selected' class from the menu
+ 	    chapters.forEach(function(chap) {
+	        chap.classList.remove('selected');
+	    });
+	    this.classList.add('selected');
+        });
+    });
+
+	
+    prevChapterButton.addEventListener('click', function() {
+        if (currentChapterIndex > 0) {
+            currentChapterIndex--;
+            var target = chapters[currentChapterIndex].getAttribute('data-target');
+            loadImages(target);
+            updateChapterButtons();
+	    saveChapterToCookie(); 
+            // Remove 'selected' class from the menu
+	    chapters.forEach(function(chap) {
+	        chap.classList.remove('selected');
+	    });
+	chapters[currentChapterIndex].classList.add('selected');
+        }
+    });
+
+    nextChapterButton.addEventListener('click', function() {
+      if (currentChapterIndex < chapters.length - 1) {
+        currentChapterIndex++;
+        var target = chapters[currentChapterIndex].getAttribute('data-target');
+        loadImages(target);
+        updateChapterButtons();
+	saveChapterToCookie(); //added
+		    // Supprime la classe 'selected' de tous les éléments du menu
+		chapters.forEach(function(chap) {
+			chap.classList.remove('selected');
+		});
+	
+		chapters[currentChapterIndex].classList.add('selected');
+      }
+    });
+    function loadImages(chapter) {
+      var images = [];
+
+     

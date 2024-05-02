@@ -1,0 +1,122 @@
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212; 
+    overflow: hidden;
+  }
+
+  /* Styles pour les barres de défilement */
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: #333;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 5px;
+  }
+
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    overflow-y: auto;
+  }
+
+  #sidebar.hidden,
+  #prevChapter.hidden,
+  #nextChapter.hidden,
+  #homeButton.hidden   {
+    display: none;
+  }
+
+  #sidebar a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid #555;
+    transition: background-color 0.3s;
+  }
+
+  #sidebar a:hover {
+    background-color: #555;
+  }
+  #sidebar .chapter.selected {
+	/*color: red;  Met le texte en rouge */
+	  color: #ffbb00;
+  }
+
+  #content {
+     /* margin-left: 200px; Largeur du sidebar */
+    padding: 20px 20px 0;
+    overflow-y: auto;
+    height: 100vh; /* Hauteur maximale de la zone de contenu */
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+  }
+
+  #content::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  #content::-webkit-scrollbar-track {
+    background: #333;
+  }
+
+  #content::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 5px;
+  }
+
+#chapterButtons {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+	flex-direction: column-reverse; /* Empile les boutons dans l'ordre inverse */
+    z-index: 7;
+}
+
+#toggleMenu,
+#prevChapter,
+#nextChapter,
+#homeButton {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 10px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px; /* Espacement entre les boutons */
+    text-decoration: none;
+	border-bottom: 1px solid #555;
+}
+img {
+	margin-top:10px;
+    max-width: 100%; /* Pour que les images ne dépassent pas la largeur du conteneur */
+    height: auto; /* Pour conserver les proportions de l'image */
+}
+
+#nextChapterPageEnd  {
+    display: block;
+    margin-bottom: 30px; 
+    padding: 30px 643px;
+    background-color: #333; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#nextChapterPageEnd :hover {
+    background-color: #555;
+}

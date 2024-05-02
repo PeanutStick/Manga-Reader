@@ -1,0 +1,94 @@
+
+		// Add images to content
+		var content = document.getElementById('content');
+		content.innerHTML = ''; //Remove last content
+
+		images.forEach(function(imageSrc) {
+			var img = document.createElement('img');
+			img.src = imageSrc;
+			content.appendChild(img);
+		});
+
+
+	  	// Add the button at the bottom
+		var nextChapterButtonPageEnd = document.createElement('button');
+		nextChapterButtonPageEnd.innerText = 'Next Chapter';
+		nextChapterButtonPageEnd.id = 'nextChapterPageEnd';
+		
+		nextChapterButtonPageEnd.addEventListener('click', function() {
+			if (currentChapterIndex < chapters.length - 1) {
+				currentChapterIndex++;
+				var target = chapters[currentChapterIndex].getAttribute('data-target');
+				loadImages(target);
+				updateChapterButtons();
+				saveChapterToCookie();
+				// Remove 'selected' class from the menu
+				chapters.forEach(function(chap) {
+					chap.classList.remove('selected');
+				});
+				chapters[currentChapterIndex].classList.add('selected');
+			}
+		});
+		content.appendChild(nextChapterButtonPageEnd);
+    }
+
+    function updateChapterButtons() {
+		if (currentChapterIndex === 0) {
+			prevChapterButton.disabled = true;
+		} else {
+			prevChapterButton.disabled = false;
+		}
+
+		if (currentChapterIndex === chapters.length - 1) {
+			nextChapterButton.disabled = true;
+		} else {
+			nextChapterButton.disabled = false;
+		}
+    }
+
+
+	// Load chapter from cookie
+    function loadChapterFromCookie() {
+        var savedChapter = getCookie('manga_name');
+        if (savedChapter) {
+            var chapterData = JSON.parse(savedChapter);
+            loadImages(chapterData.chapter);
+            currentChapterIndex = chapterData.index;
+            updateChapterButtons();
+            chapters[currentChapterIndex].classList.add('selected');
+        }
+    }
+
+    // Save chapter into cookie
+    function saveChapterToCookie() {
+        var chapterData = {
+            chapter: chapters[currentChapterIndex].getAttribute('data-target'),
+            index: currentChapterIndex
+        };
+        setCookie('manga_name', JSON.stringify(chapterData), 365);
+    }
+
+    // Get the value of the cookie
+    function getCookie(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        if (match) return match[2];
+    }
+
+    // Define the value of the cookie
+    function setCookie(name, value, days) {
+        var expires = '';
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = '; expires=' + date.toUTCString();
+        }
+        document.cookie = name + '=' + value + expires + '; path=/';
+    }
+
+    // Charger le chapitre sauvegardé depuis le cookie lors du chargement de la page
+    loadChapterFromCookie();
+
+  });
+</script>
+</body>
+</html>

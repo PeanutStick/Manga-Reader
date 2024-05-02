@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mangaaaa</title>
+<link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+<div id="content">
+<!--img-->
+</div>
+<!--<button id="toggleMenu">Menu</button>-->
+<div id="chapterButtons">
+	<button id="toggleMenu">Chapters</button>
+	<button id="nextChapter">Next</button>
+    <button id="prevChapter">Prev</button>
+	<a href="../index.html" id="homeButton">Home</a>
+</div>
+
+<div id="sidebar">
