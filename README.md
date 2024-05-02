@@ -40,7 +40,7 @@ The website is made with HTML and JS.
 ┃ ┣─📜Berserk.html
 ┃ ┗─📜Grand Blue.html
 ```
-# screenshot
+# Screenshots
 ### Index.html
 ![](https://i.imgur.com/CedFXPr.png)
 ### Manga
