@@ -2,9 +2,15 @@
 A manga website reader generator, writen in Bash.    
 The website is made with HTML and JS.
 
-# Usage
+
+# Usage 
+## Download the mangas
+1. Create a file `link.txt` in the mangas directory (ex: 'mangas/dr. stone/link.txt')
+2. Put a part of the link inside like `dr-stone.18416` for `https://mangakatana.com/manga/dr-stone.18416`.    
+3. Run the script `manga_downloader.sh`.    
+## Generate the webpage
 1. Put the mangas in the mangas directory.
-2. Run the script `gen_website.sh`.
+2. Run the script `gen_website.sh`.    
 
 # Features
 [x] 1. Save the chapter of the page to come back at the right chapter.    
@@ -13,9 +19,10 @@ The website is made with HTML and JS.
 [x] 4. Hide the buttons by clicking on `Chapters`.    
 [x] 5. Add the next button at the end of the page.    
 [x] 6. Responsive.    
-[ ] 7. Save the page of the chapter to come back at the right page.    
-[ ] 8. Fix the size of the images in the index.     
-[ ] 9. Add pages in the index.    
+[x] 7. Create a script to download the chapters.    
+[ ] 8. Save the page of the chapter to come back at the right page.    
+[ ] 9. Fix the size of the images in the index.     
+[ ] 10. Add pages in the index.    
 
 # File structure    
 ```
