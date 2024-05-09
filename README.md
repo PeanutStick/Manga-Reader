@@ -21,6 +21,7 @@ echo "dr-stone.18416" > "mangas/dr. stone/link.txt"
 1. Put the mangas in the mangas directory.
 2. Run the script `gen_website.sh`.    
 
+## Update
 # Features
 [x] 1. Save the chapter of the page to come back at the right chapter.    
 [x] 2. Fast generation by generating only the new webpages pages.    
