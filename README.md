@@ -8,6 +8,7 @@ The website is made with HTML and JS.
 ```bash
 mkdir "mangas/dr. stone" -p
 mkdir webpages
+
 # Optional
 echo "dr-stone.18416" > "mangas/dr. stone/link.txt"
 ```
