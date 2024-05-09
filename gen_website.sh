@@ -96,16 +96,17 @@ EOF
 
 for f in mangas/*; do
 	title=$(echo $f |cut -d "/" -f 2)
-	md5dir=$(tar -cf - "mangas/${title}" | md5sum | cut -d " " -f 1)
+	#md5dir=$(tar -cf - "mangas/${title}" | md5sum | cut -d " " -f 1)
+	sha1sum=$(ls -alR --full-time "mangas/${title}" | sha1sum | cut -d " " -f 1)
 	update=1
-	if grep -Fq "$md5dir" webpages/"$title".html
+	if grep -Fq "$sha1sum" webpages/"$title".html
 	then
 		update=0
 	fi
 	
 	if [ "$update" == 0 ] # Si le manga n'a pas changé
 	then
-		echo "No change for: $title - $md5dir"
+		echo "No change for: $title - $sha1sum"
 		echo "  <div class=\"manga\">" >> index.html.new
 		echo "    <a href=\"webpages/"${title}".html\">" >> index.html.new
 
@@ -182,9 +183,9 @@ for f in mangas/*; do
 		
 		sed -i 's/manga_name/'${title}'/g' webpages/"$title".html
 		
-		sed -i '/md5_hash:/d' webpages/"$title".html
-		# Add md5 hash of the compressed directory to check any changes, like if you add a new chapter
-		echo "<!--md5_hash: ${md5dir}-->" >> webpages/"$title".html
+		sed -i '/sha1sum:/d' webpages/"$title".html
+		# Add sha1sum hash of the compressed directory to check any changes, like if you add a new chapter
+		echo "<!--sha1sum: ${sha1sum}-->" >> webpages/"$title".html
 		
 		end_time=$(date +%s.%N)
 		elapsed_time=$(echo "$end_time - $start_time" | bc)
