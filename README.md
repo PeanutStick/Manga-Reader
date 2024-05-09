@@ -4,6 +4,13 @@ The website is made with HTML and JS.
 
 
 # Usage 
+## Create the directories
+```bash
+mkdir "mangas/dr. stone" -p
+mkdir webpages
+# Optional
+echo "dr-stone.18416" > "mangas/dr. stone/link.txt"
+```
 ## Download the mangas
 1. Create a file `link.txt` in the mangas directory (ex: 'mangas/dr. stone/link.txt')
 2. Put a part of the link inside like `dr-stone.18416` for `https://mangakatana.com/manga/dr-stone.18416`.    
