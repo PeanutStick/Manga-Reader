@@ -38,6 +38,7 @@ echo "dr-stone.18416" > "mangas/dr. stone/link.txt"
 ```
 📦
 ┣📜gen_website.sh
+┣📜manga_downloader.sh
 ┣📜index.html
 ┣📜style.css
 ┣📜chap1.txt
@@ -46,6 +47,7 @@ echo "dr-stone.18416" > "mangas/dr. stone/link.txt"
 ┣📂 mangas
 ┃ ┣─📂 Berserk
 ┃ ┗─📂 Grand Blue
+┃    ┣─📜link.txt
 ┃    ┣─📂 c001
 ┃    ┃  ┗──📜001.jpg
 ┃    ┃  ┗──📜002.jpg
